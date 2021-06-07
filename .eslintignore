@@ -2,3 +2,9 @@ node_modules
 test/temp
 output
 __transpiled
+dist
+local
+.vscode
+.idea
+coverage
+*.DS_Store
