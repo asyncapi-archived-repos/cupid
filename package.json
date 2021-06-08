@@ -9,7 +9,8 @@
     "get:version": "echo $npm_package_version",
     "get:name": "echo $npm_package_name",
     "generate:assets": "echo \"Nothing to generate\"",
-    "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION"
+    "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION",
+    "release": "semantic-release"
   },
   "repository": {
     "type": "git",
