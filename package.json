@@ -36,5 +36,29 @@
   },
   "dependencies": {
     "@asyncapi/parser": "^1.5.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+        [
+          "@semantic-release/commit-analyzer",
+            {
+              "preset": "conventionalcommits"
+            }
+        ],
+        [
+          "@semantic-release/release-notes-generator",
+          {
+            "preset": "conventionalcommits"
+          }
+        ],
+        "@semantic-release/npm",
+        "@semantic-release/github"
+    ]
   }
 }
