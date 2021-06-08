@@ -1,6 +1,6 @@
 {
   "name": "@asyncapi/app-relations-discovery",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A library that focuses on finding and analyzing the relationships between AsyncAPI Documents too later output consolidated information about the system architecture. Output format should be customizable and available in different formats like uml, mermaid.js and other.",
   "main": "./lib/index.js",
   "scripts": {
@@ -45,20 +45,20 @@
       "master"
     ],
     "plugins": [
-        [
-          "@semantic-release/commit-analyzer",
-            {
-              "preset": "conventionalcommits"
-            }
-        ],
-        [
-          "@semantic-release/release-notes-generator",
-          {
-            "preset": "conventionalcommits"
-          }
-        ],
-        "@semantic-release/npm",
-        "@semantic-release/github"
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      "@semantic-release/npm",
+      "@semantic-release/github"
     ]
   }
 }
