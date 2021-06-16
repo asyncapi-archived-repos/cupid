@@ -22,10 +22,10 @@ npm install @asyncapi/app-relations-discovery
 
 - For default output syntax
 ```javascript
-const relations = appRelationsDeiscovery.getRelations(...docs);
+const defaultOutput = appRelationsDiscovery.getRelations(...docs);
 ```
 
 - For mermaid Flowchart 
 ```javascript
-const relations = appRelationsDeiscovery.getRelations(...docs,{syntax:'mermaid'});
+const mermaidFlowchart = appRelationsDiscovery.getRelations(...docs,{syntax:'mermaid'});
 ```
