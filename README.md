@@ -29,3 +29,8 @@ const defaultOutput = appRelationsDiscovery.getRelations(...docs);
 ```javascript
 const mermaidFlowchart = appRelationsDiscovery.getRelations(...docs,{syntax:'mermaid'});
 ```
+
+- For plantUML classDiagram 
+```javascript
+const plantUMLClassDiagram = appRelationsDiscovery.getRelations(...docs,{syntax:'plantUML'});
+```
