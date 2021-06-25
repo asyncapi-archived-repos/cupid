@@ -4,12 +4,14 @@
   "description": "A library that focuses on finding and analyzing the relationships between AsyncAPI Documents too later output consolidated information about the system architecture. Output format should be customizable and available in different formats like uml, mermaid.js and other.",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"No test specified\"",
+    "test": "npm run test:lib && npm run cover:report",
     "lint": "eslint --max-warnings 0 --config .eslintrc .",
     "get:version": "echo $npm_package_version",
     "get:name": "echo $npm_package_name",
     "generate:assets": "echo \"Nothing to generate\"",
     "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION",
+    "cover:report": "nyc report --reporter=text --reporter=html",
+    "test:lib": "nyc --silent --no-clean mocha --recursive",
     "release": "semantic-release"
   },
   "repository": {
@@ -27,11 +29,15 @@
     "@semantic-release/github": "^7.2.3",
     "@semantic-release/npm": "^7.1.3",
     "@semantic-release/release-notes-generator": "^9.0.2",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
     "conventional-changelog-conventionalcommits": "^4.6.0",
     "eslint": "^7.28.0",
     "eslint-plugin-mocha": "^9.0.0",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-sonarjs": "^0.8.0-125",
+    "mocha": "^9.0.1",
+    "nyc": "^15.1.0",
     "semantic-release": "^17.4.3"
   },
   "dependencies": {
