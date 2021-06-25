@@ -10,12 +10,7 @@ async function getAsyncApiExamples() {
   for (const file of files) {
     const document_path = path.join('./examples/flightService', file);
     const asyncApiDoc = fs.readFileSync(path.resolve(__dirname, document_path),'utf8');
-    try {
-      const parsedDoc = await parser.parse(asyncApiDoc);
-      docs.push(parsedDoc._json);
-    } catch (err) {
-      console.log(err);
-    }
+    docs.push(asyncApiDoc);
   }
   return docs;
 }
