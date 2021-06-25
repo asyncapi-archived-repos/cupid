@@ -1,10 +1,9 @@
 const path = require('path');
 const fs = require('fs');
-const parser = require('@asyncapi/parser');
 
 const examplesPath = './test/examples/flightService';
 
-async function getAsyncApiExamples() {
+function getAsyncApiExamples() {
   const docs = [];
   const files = fs.readdirSync(examplesPath);
   for (const file of files) {
