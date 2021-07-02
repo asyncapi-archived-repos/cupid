@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+const { resolve } = require('path');
+const { rejects } = require('assert');
 
 const examplesPath = './test/examples/flightService';
 
@@ -14,4 +16,16 @@ function getAsyncApiExamples() {
   return docs;
 }
 
-module.exports = {getAsyncApiExamples};
+function mapToObject (map) {
+  const obj = {};
+  for (const [key,value] of map) {
+    if (value instanceof Map) {
+      obj[key] = mapToObject(value);
+    } else {
+      obj[key] = value;
+    }
+  }
+  return obj;
+}
+
+module.exports = {getAsyncApiExamples, mapToObject};
