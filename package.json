@@ -4,13 +4,12 @@
   "description": "A library that focuses on finding and analyzing the relationships between AsyncAPI Documents too later output consolidated information about the system architecture. Output format should be customizable and available in different formats like uml, mermaid.js and other.",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "npm run test:lib && npm run cover:report",
+    "test": "npm run test:lib",
     "lint": "eslint --max-warnings 0 --config .eslintrc .",
     "get:version": "echo $npm_package_version",
     "get:name": "echo $npm_package_name",
     "generate:assets": "echo \"Nothing to generate\"",
     "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION",
-    "cover:report": "nyc report --reporter=text --reporter=html",
     "test:lib": "nyc --silent --no-clean mocha --recursive",
     "release": "semantic-release"
   },
