@@ -14,16 +14,4 @@ function getAsyncApiExamples() {
   return docs;
 }
 
-function mapToObject (map) {
-  const obj = {};
-  for (const [key,value] of map) {
-    if (value instanceof Map) {
-      obj[key] = mapToObject(value);
-    } else {
-      obj[key] = value;
-    }
-  }
-  return obj;
-}
-
-module.exports = {getAsyncApiExamples, mapToObject};
+module.exports = {getAsyncApiExamples};
