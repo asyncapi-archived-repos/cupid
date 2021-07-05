@@ -10,7 +10,7 @@
     "get:name": "echo $npm_package_name",
     "generate:assets": "echo \"Nothing to generate\"",
     "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION",
-    "test:lib": "nyc --silent --no-clean mocha --recursive",
+    "test:lib": "nyc --reporter=lcov --reporter=html --reporter=text --no-clean mocha --recursive",
     "release": "semantic-release"
   },
   "repository": {
