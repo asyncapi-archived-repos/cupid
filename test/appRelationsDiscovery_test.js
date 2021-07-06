@@ -35,9 +35,7 @@ describe('appRelationDiscovery', function() {
   });
 
   it('should return correct channels', function() {
-    const channelsIterator = slugOutput.keys();
-    expect(channelsIterator.next().value).to.equal(correctChannelUpdate);
-    expect(channelsIterator.next().value).to.equal(correctChannelQueue);
+    expect(slugOutput).to.have.all.keys(correctChannelUpdate, correctChannelQueue);
   });
 
   it('should return correct subscriber data for flight/update channel', async function() {
