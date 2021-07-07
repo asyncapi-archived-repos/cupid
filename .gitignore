@@ -5,3 +5,4 @@ local
 .idea
 coverage
 *.DS_Store
+.nyc_output
