@@ -40,26 +40,26 @@ describe('appRelationDiscovery', function() {
 
   it('should return correct subscriber data for flight/update channel', async function() {
     const updateChannelOutput = slugOutput.get(correctChannelUpdate);
-    expect(updateChannelOutput.sub.keys().next().value).to.equal(flightUpdateSubData.keys().next().value);
-    expect(updateChannelOutput.sub.values().next().value).deep.to.equal(flightUpdateSubData.values().next().value);
+    const correctSubOperation = 'Flight Monitor Service';
+    expect(updateChannelOutput.sub.get(correctSubOperation)).to.deep.equal(flightUpdateSubData.get(correctSubOperation));
   });
 
   it('should return correct publisher data for flight/update channel', async function() {
     const updateChannelOutput = slugOutput.get(correctChannelUpdate);
-    expect(updateChannelOutput.pub.keys().next().value).to.deep.equal(flightUpdatePubData.keys().next().value);
-    expect(updateChannelOutput.pub.values().next().value).deep.to.equal(flightUpdatePubData.values().next().value);
+    const correctPubOperation = 'Flight Notifier Service';
+    expect(updateChannelOutput.pub.get(correctPubOperation)).to.deep.equal(flightUpdatePubData.get(correctPubOperation));
   });
 
   it('should return correct subscriber data for flight/queue channel', async function() {
     const queueChannelOutput = slugOutput.get(correctChannelQueue);
-    expect(queueChannelOutput.sub.keys().next().value).to.deep.equal(flightQueueSubData.keys().next().value);
-    expect(queueChannelOutput.sub.values().next().value).deep.to.equal(flightQueueSubData.values().next().value);
+    const correctSubOperation = 'Flight Subscriber Service';
+    expect(queueChannelOutput.sub.get(correctSubOperation)).to.deep.equal(flightQueueSubData.get(correctSubOperation));
   });
 
   it('should return correct publisher data for flight/queue channel', async function() {
     const queueChannelOutput = slugOutput.get(correctChannelQueue);
-    expect(queueChannelOutput.pub.keys().next().value).to.deep.equal(flightQueuePubData.keys().next().value);
-    expect(queueChannelOutput.pub.values().next().value).deep.to.equal(flightQueuePubData.values().next().value);
+    const correctPubOperation = 'Flight Monitor Service';
+    expect(queueChannelOutput.pub.get(correctPubOperation)).to.deep.equal(flightQueuePubData.get(correctPubOperation));
   });
 
   it('should return the correct mermaid syntax', async function() {
