@@ -34,3 +34,8 @@ const mermaidFlowchart = appRelationsDiscovery.getRelations(...docs,{syntax:'mer
 ```javascript
 const plantUMLClassDiagram = appRelationsDiscovery.getRelations(...docs,{syntax:'plantUML'});
 ```
+
+- For reactFlow nodes
+```javascript
+const reactFlowNodes = appRelationsDiscovery.getRelations(...docs,{syntax:'reactFlow'});
+```
