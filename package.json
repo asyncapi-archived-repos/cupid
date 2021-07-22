@@ -1,6 +1,6 @@
 {
   "name": "@asyncapi/app-relations-discovery",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A library that focuses on finding and analyzing the relationships between AsyncAPI Documents too later output consolidated information about the system architecture. Output format should be customizable and available in different formats like uml, mermaid.js and other.",
   "main": "./lib/index.js",
   "scripts": {
