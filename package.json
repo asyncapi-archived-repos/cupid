@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npm run test:lib",
     "lint": "eslint --max-warnings 0 --config .eslintrc .",
+    "docs": "jsdoc2md \"lib/appRelationsDiscovery.js\" -f \"lib/**/*.js\" > API.md",
     "get:version": "echo $npm_package_version",
     "get:name": "echo $npm_package_name",
     "generate:assets": "echo \"Nothing to generate\"",
@@ -35,6 +36,7 @@
     "eslint-plugin-mocha": "^9.0.0",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-sonarjs": "^0.8.0-125",
+    "jsdoc-to-markdown": "^7.0.1",
     "mocha": "^9.0.1",
     "nyc": "^15.1.0",
     "semantic-release": "^17.4.3"
