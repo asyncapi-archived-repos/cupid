@@ -7,8 +7,6 @@
 
 ![npm](https://img.shields.io/npm/v/@asyncapi/app-relations-discovery?style=for-the-badge) ![npm](https://img.shields.io/npm/dt/@asyncapi/app-relations-discovery?style=for-the-badge)
 
-> :warning: This package is under construction.
-
 - [Overview](#overview)
 - [Install the module](#install-the-module)
 - [Testing](#testing)
