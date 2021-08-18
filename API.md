@@ -28,7 +28,7 @@ Validates and analyzes a list of AsyncAPI documents and get applications describ
 
 | Param | Type | Description |
 | --- | --- | --- |
-| asyncApiDocs | <code>Array</code> | An array of strings |
+| asyncApiDocs | <code>Array.&lt;String&gt;</code> | An array of stringified AsyncAPI documents |
 | [options] | <code>Object</code> |  |
 | [options.syntax] | <code>&#x27;default&#x27;</code> \| <code>&#x27;mermaid&#x27;</code> \| <code>&#x27;plantUML&#x27;</code> \| <code>&#x27;reactFlow&#x27;</code> | syntax in which the relation will be generated. |
 
