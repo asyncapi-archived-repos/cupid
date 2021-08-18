@@ -8,21 +8,18 @@
 ![npm](https://img.shields.io/npm/v/@asyncapi/app-relations-discovery?style=for-the-badge) ![npm](https://img.shields.io/npm/dt/@asyncapi/app-relations-discovery?style=for-the-badge)
 
 - [Overview](#overview)
-- [Install the module](#install-the-module)
-- [Testing](#testing)
+- [Install](#install)
   - [Technical Details](#technical-details)
-- [APIs](#apis)
+- [API Documentation](#api-documentation)
 - [Usage](#usage)
   - [Node.js](#nodejs)
   - [Default Output Syntax](#default-output-syntax)
 - [Mermaid Flowchart](#mermaid-flowchart)
   - [Syntax](#syntax)
   - [Flowchart](#flowchart)
-  - [Link](#link)
 - [PlantUML classDiagram](#plantuml-classdiagram)
   - [Syntax](#syntax-1)
   - [ClassDiagram](#classdiagram)
-  - [Link](#link-1)
 - [React Flow  Nodes](#react-flow--nodes)
   - [Syntax](#syntax-2)
   - [React Flow Nodes](#react-flow-nodes)
@@ -30,42 +27,21 @@
 - [Develop](#develop)
 - [Contributing](#contributing)
 ## Overview
-An official library that focuses on finding and analyzing the relationships between AsyncAPI Documents to later output consolidated information about the system architecture. Output format would be customizable and available in different formats like uml, mermaid.js and other.
-## Install the module
+An official library that focuses on finding and analyzing the relationships between AsyncAPI files to later output consolidated information about the system architecture. Output format would be customizable and available in different formats like PlantUML, mermaid.js, ReactFlow.
+## Install
 
 ```
 npm install @asyncapi/app-relations-discovery
 ```
 
-## Testing
-1) Clone the project `git clone https://github.com/asyncapi/app-relations-discovery.git`
-2) Install the dependencies `npm i`
-3) For a quick overview you can run tests by `npm test`. You can also contribute to provide more different syntax outputs to visualize the relations.
-
 ### Technical Details
-This library takes AsyncAPI Documents as an array input for which the user wants to discover the relations of. It then validates and parse given array of AsyncAPI documents and generates the output in desired passed syntax.
+This library takes AsyncAPI files as an array input for which the user wants to discover the relations between them. It then validates and parses the given array of AsyncAPI files and generates the output in desired passed syntax.
 In the process, for every different server it assigns a slug having server's URL and protocol and then maps channels with the same server. Following, it maps the service information with the channel's name as per if the service is subscribing/publishing to a given channel. In the sub/pub Map of default output syntax, it provides service name and the metadata of the service including but not limited to `description`, `payload`, `headers`, `bindings`, `extensions`.
-## APIs
+## API Documentation
 
-- For default output syntax
-```javascript
-const defaultOutput = appRelationsDiscovery.getRelations(...docs);
-```
+See [API documentation](https://github.com/asyncapi/app-relations-discovery/blob/master/API.md) for more example and full API reference information.
 
-- For mermaid Flowchart 
-```javascript
-const mermaidFlowchart = appRelationsDiscovery.getRelations(...docs,{syntax:'mermaid'});
-```
 
-- For plantUML classDiagram 
-```javascript
-const plantUMLClassDiagram = appRelationsDiscovery.getRelations(...docs,{syntax:'plantUML'});
-```
-
-- For reactFlow nodes
-```javascript
-const reactFlowNodes = appRelationsDiscovery.getRelations(...docs,{syntax:'reactFlow'});
-```
 ## Usage
 
 ### Node.js
@@ -108,8 +84,8 @@ const reactFlowNodes = appRelationsDiscovery.getRelations(...docs,{syntax:'react
 ```javascript
 Map(n) {
   '<server1>' => Map(m) {
-    'channel1' => { sub: [Map], pub: [Map] },
-    'channel2' => { sub: [Map], pub: [Map] }
+    'channel1' => { sub: [Map(1) {"<Service Name>" => "<metadata>"}, ...], pub: [[Map(1) {"<Service Name>" => "<metadata>"}, ...] },
+    'channel2' => { sub: [[Map(1) {"<Service Name>" => "<metadata>"}, ...], pub: [[Map(1) {"<Service Name>" => "<metadata>"}, ...] }
   }
 }
 ```
@@ -132,9 +108,7 @@ server1 -- flight/queue --> FlightMonitorService
 
 <img src="./public/img/mermaid.png" alt="Mermaid Flowchart" width="500"/> </br></br>
 
-### Link
-
-You can paste the mermaid output syntax to visualize the relations as Flowchart here: https://mermaid-js.github.io/mermaid-live-editor/edit
+**[Code snippet with syntax](https://mermaid-js.github.io/mermaid-live-editor/edit#eyJjb2RlIjoiZ3JhcGggVERcbiBzZXJ2ZXIxWyhtcXR0Oi8vbG9jYWxob3N0OjE4ODMpXVxuRmxpZ2h0TW9uaXRvclNlcnZpY2VbRmxpZ2h0IE1vbml0b3IgU2VydmljZV1cbkZsaWdodE1vbml0b3JTZXJ2aWNlIC0tIGZsaWdodC91cGRhdGUgLS0-IHNlcnZlcjFcbkZsaWdodE5vdGlmaWVyU2VydmljZVtGbGlnaHQgTm90aWZpZXIgU2VydmljZV1cbnNlcnZlcjEgLS0gZmxpZ2h0L3VwZGF0ZSAtLT4gRmxpZ2h0Tm90aWZpZXJTZXJ2aWNlXG5GbGlnaHRTdWJzY3JpYmVyU2VydmljZVtGbGlnaHQgU3Vic2NyaWJlciBTZXJ2aWNlXVxuRmxpZ2h0U3Vic2NyaWJlclNlcnZpY2UgLS0gZmxpZ2h0L3F1ZXVlIC0tPiBzZXJ2ZXIxXG5zZXJ2ZXIxIC0tIGZsaWdodC9xdWV1ZSAtLT4gRmxpZ2h0TW9uaXRvclNlcnZpY2UiLCJtZXJtYWlkIjoie1xuICBcInRoZW1lXCI6IFwiZGVmYXVsdFwiXG59IiwidXBkYXRlRWRpdG9yIjp0cnVlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6dHJ1ZX0)**
 ## PlantUML classDiagram 
 
 ### Syntax
@@ -156,9 +130,8 @@ server1 --|> FlightMonitorService:flight/queue
 ### ClassDiagram
 
 <img src="./public/img/plantUML.png" alt="PlantUML classDiagram" width="500"/> </br></br>
-### Link
 
-You can paste the plantUML output syntax to visualize the relations as classDiagram here: https://www.planttext.com/
+**[Code snippet with syntax](https://www.planttext.com/?text=VP3D3e8m3CVlVOgz02742zd1a6YywOKd6AF0aa6Xwxoexou1EM2CjpRz_JzIA88ObjXx42SUrScR432eP9tKsPcMJGzWbpKWtv4pzL2W8dkj-ab4fwadQtn7GNIMvuVvE389MVeGy8ABTsqdLngS49UpZREeakHvt3nrin1f76iZ25lIWgpY6ubh76xgBy7AbB4Abbs5VpEcYF5dnBxV7YzmgET7lG40)**
 ## React Flow  Nodes 
 
 ### Syntax
@@ -250,9 +223,12 @@ export default () => (
 
 ## Develop
 
-1. Write code and tests.
-1. Make sure all tests pass `npm test`
-1. Make sure code is well formatted and secure `npm run lint`
+1. Clone the project `git clone https://github.com/asyncapi/app-relations-discovery.git`
+2. Install the dependencies `npm i`
+3. For a quick overview you can run tests by `npm test`. You can also contribute to provide more different syntax outputs to visualize the relations.
+4. Write code and tests.
+5. Make sure all tests pass `npm test`
+6. Make sure code is well formatted and secure `npm run lint`
 
 
 ## Contributing
