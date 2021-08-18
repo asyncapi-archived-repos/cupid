@@ -7,6 +7,10 @@
 
 ![npm](https://img.shields.io/npm/v/@asyncapi/app-relations-discovery?style=for-the-badge) ![npm](https://img.shields.io/npm/dt/@asyncapi/app-relations-discovery?style=for-the-badge)
 
+<!-- toc is generated with GitHub Actions do not remove toc markers -->
+
+<!-- toc -->
+
 - [Overview](#overview)
 - [Install](#install)
   - [Technical Details](#technical-details)
