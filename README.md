@@ -30,6 +30,9 @@
   - [Steps to visualize relations in React Flow](#steps-to-visualize-relations-in-react-flow)
 - [Develop](#develop)
 - [Contributing](#contributing)
+
+<!-- tocstop -->
+
 ## Overview
 An official library that focuses on finding and analyzing the relationships between AsyncAPI files to later output consolidated information about the system architecture. Output format would be customizable and available in different formats like PlantUML, mermaid.js, ReactFlow.
 ## Install
