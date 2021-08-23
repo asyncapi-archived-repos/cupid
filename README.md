@@ -5,7 +5,10 @@
   Applications Relation Finder
 </h5>
 
-![npm](https://img.shields.io/npm/v/@asyncapi/app-relations-discovery?style=for-the-badge) ![npm](https://img.shields.io/npm/dt/@asyncapi/app-relations-discovery?style=for-the-badge)
+![npm](https://img.shields.io/npm/v/@asyncapi/app-relations-discovery?style=for-the-badge) 
+![npm](https://img.shields.io/npm/dt/@asyncapi/app-relations-discovery?style=for-the-badge)
+[![Coverage Status](https://coveralls.io/repos/github/asyncapi/app-relations-discovery/badge.svg?branch=master)](https://coveralls.io/github/asyncapi/app-relations-discovery?branch=master)
+
 
 <!-- toc is generated with GitHub Actions do not remove toc markers -->
 
