@@ -13,7 +13,7 @@
 
 - [Overview](#overview)
 - [Install](#install)
-  - [Technical Details](#technical-details)
+- [Technical Details](#technical-details)
 - [API Documentation](#api-documentation)
 - [Usage](#usage)
   - [Node.js](#nodejs)
@@ -75,13 +75,13 @@ function getAsyncApiExamples() {
 const defaultOutput = appRelationsDiscovery.getRelations(...docs);
 
 // For mermaid Flowchart 
-const mermaidFlowchart = appRelationsDiscovery.getRelations(...docs,{syntax:'mermaid'});
+const mermaidFlowchart = appRelationsDiscovery.getRelations(docs,{syntax:'mermaid'});
 
 // For plantUML classDiagram 
-const plantUMLClassDiagram = appRelationsDiscovery.getRelations(...docs,{syntax:'plantUML'});
+const plantUMLClassDiagram = appRelationsDiscovery.getRelations(docs,{syntax:'plantUML'});
 
 // For reactFlow nodes
-const reactFlowNodes = appRelationsDiscovery.getRelations(...docs,{syntax:'reactFlow'});
+const reactFlowNodes = appRelationsDiscovery.getRelations(docs,{syntax:'reactFlow'});
 ```
 
 ### Default Output Syntax
@@ -218,8 +218,10 @@ Based on FlightService example.
 import React from 'react';
 import ReactFlow from 'react-flow-renderer';
 import appRelationsDiscovery from '@asyncapi/app-relations-discovery';
+import {getAsyncApiDocuments} from 'utils'; // function for reading AysncAPI files 
 
-const elements = appRelationsDiscovery.getRelations(...docs,{syntax:'reactFlow'});
+const docs = getAsyncApiDocuments();
+const elements = appRelationsDiscovery.getRelations(docs,{syntax:'reactFlow'});
 
 export default () => (
   <div style={{ height: 300 }}>
