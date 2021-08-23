@@ -86,8 +86,6 @@ const reactFlowNodes = appRelationsDiscovery.getRelations(docs,{syntax:'reactFlo
 
 ### Default Output Syntax
 
-// Explain:
-
 ```javascript
 Map(n) {
   '<server1>' => Map(m) {
