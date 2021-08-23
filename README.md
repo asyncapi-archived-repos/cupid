@@ -2,7 +2,10 @@
   <br>
   <a href="https://www.asyncapi.org"><img src="https://github.com/asyncapi/parser-nodejs/raw/master/assets/logo.png" alt="AsyncAPI logo" width="200"></a>
   <br>
-  Applications Relation Finder
+  <b>Cupid</b>
+  <br>
+  <img src="../app-relations-discovery/public/img/cupid.jpeg" alt="AsyncAPI logo" width="200"></a>
+  <br>
 </h5>
 
 ![npm](https://img.shields.io/npm/v/@asyncapi/app-relations-discovery?style=for-the-badge) 
@@ -16,7 +19,7 @@
 
 - [Overview](#overview)
 - [Install](#install)
-- [Technical Details](#technical-details)
+  - [Technical Details](#technical-details)
 - [API Documentation](#api-documentation)
 - [Usage](#usage)
   - [Node.js](#nodejs)
@@ -99,7 +102,7 @@ Map(n) {
 ```
 ## Mermaid Flowchart
 ### Syntax
-Based on FlightService example.
+Based on [Flight Notification Service](https://github.com/asyncapi/cupid/tree/master/test/examples) example.
 ```
 graph TD
  server1[(mqtt://localhost:1883)]
