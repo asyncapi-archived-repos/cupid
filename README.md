@@ -44,7 +44,7 @@ An official library that focuses on finding and analyzing the relationships betw
 ## Install
 
 ```
-npm install @asyncapi/app-relations-discovery
+npm install @asyncapi/cupid
 ```
 
 ### Technical Details
@@ -60,7 +60,7 @@ See [API documentation](https://github.com/asyncapi/app-relations-discovery/blob
 ### Node.js
 
 ```javascript
-const appRelationsDiscovery = require('@asyncapi/app-relations-discovery');
+const cupid = require('@asyncapi/cupid');
 const path = require('path');
 const fs = require('fs');
 
@@ -78,16 +78,16 @@ function getAsyncApiExamples() {
 }
 
 // For default output syntax
-const defaultOutput = appRelationsDiscovery.getRelations(...docs);
+const defaultOutput = cupid.getRelations(docs);
 
 // For mermaid Flowchart 
-const mermaidFlowchart = appRelationsDiscovery.getRelations(docs,{syntax:'mermaid'});
+const mermaidFlowchart = cupid.getRelations(docs,{syntax:'mermaid'});
 
 // For plantUML classDiagram 
-const plantUMLClassDiagram = appRelationsDiscovery.getRelations(docs,{syntax:'plantUML'});
+const plantUMLClassDiagram = cupid.getRelations(docs,{syntax:'plantUML'});
 
 // For reactFlow nodes
-const reactFlowNodes = appRelationsDiscovery.getRelations(docs,{syntax:'reactFlow'});
+const reactFlowNodes = cupid.getRelations(docs,{syntax:'reactFlow'});
 ```
 
 ### Default Output Syntax
@@ -221,11 +221,11 @@ Based on FlightService example.
 ```javascript
 import React from 'react';
 import ReactFlow from 'react-flow-renderer';
-import appRelationsDiscovery from '@asyncapi/app-relations-discovery';
+import cupid from '@asyncapi/app-relations-discovery';
 import {getAsyncApiDocuments} from 'utils'; // function for reading AysncAPI files 
 
 const docs = getAsyncApiDocuments();
-const elements = appRelationsDiscovery.getRelations(docs,{syntax:'reactFlow'});
+const elements = cupid.getRelations(docs,{syntax:'reactFlow'});
 
 export default () => (
   <div style={{ height: 300 }}>
