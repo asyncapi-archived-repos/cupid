@@ -19,7 +19,7 @@
 
 - [Overview](#overview)
 - [Install](#install)
-  - [Technical Details](#technical-details)
+- [Technical Details](#technical-details)
 - [API Documentation](#api-documentation)
 - [Usage](#usage)
   - [Node.js](#nodejs)
@@ -47,7 +47,7 @@ An official library that focuses on finding and analyzing the relationships betw
 npm install @asyncapi/cupid
 ```
 
-### Technical Details
+## Technical Details
 This library takes AsyncAPI files as an array input for which the user wants to discover the relations between them. It then validates and parses the given array of AsyncAPI files and generates the output in desired passed syntax.
 In the process, for every different server, it assigns a slug having the server's URL and protocol and then maps channels with the same server. Following, it maps the service information with the channel's name as per if the service is subscribing/publishing to a given channel. In the sub/pub Map of default output syntax, it provides service name and the metadata of the service including but not limited to `description`, `payload`, `headers`, `bindings`, `extensions`.
 ## API Documentation
