@@ -4,7 +4,7 @@
   <br>
   <b>Cupid</b>
   <br>
-  <img src="../app-relations-discovery/assets/img/cupid.jpeg" alt="AsyncAPI logo" width="200"></a>
+  <img src="./assets/img/cupid.jpeg" alt="Cupid Image" width="200"></a>
   <br>
 </h5>
 
