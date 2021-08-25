@@ -4,13 +4,13 @@
   <br>
   <b>Cupid</b>
   <br>
-  <img src="../app-relations-discovery/public/img/cupid.jpeg" alt="AsyncAPI logo" width="200"></a>
+  <img src="../app-relations-discovery/assets/img/cupid.jpeg" alt="AsyncAPI logo" width="200"></a>
   <br>
 </h5>
 
-![npm](https://img.shields.io/npm/v/@asyncapi/app-relations-discovery?style=for-the-badge) 
-![npm](https://img.shields.io/npm/dt/@asyncapi/app-relations-discovery?style=for-the-badge)
-[![Coverage Status](https://coveralls.io/repos/github/asyncapi/app-relations-discovery/badge.svg?branch=master)](https://coveralls.io/github/asyncapi/app-relations-discovery?branch=master)
+![npm](https://img.shields.io/npm/v/@asyncapi/cupid?style=for-the-badge) 
+![npm](https://img.shields.io/npm/dt/@asyncapi/cupid?style=for-the-badge)
+[![Coverage Status](https://coveralls.io/repos/github/asyncapi/cupid/badge.svg?branch=master)](https://coveralls.io/github/asyncapi/cupid?branch=master)
 
 
 <!-- toc is generated with GitHub Actions do not remove toc markers -->
@@ -52,7 +52,7 @@ This library takes AsyncAPI files as an array input for which the user wants to 
 In the process, for every different server, it assigns a slug having the server's URL and protocol and then maps channels with the same server. Following, it maps the service information with the channel's name as per if the service is subscribing/publishing to a given channel. In the sub/pub Map of default output syntax, it provides service name and the metadata of the service including but not limited to `description`, `payload`, `headers`, `bindings`, `extensions`.
 ## API Documentation
 
-See [API documentation](https://github.com/asyncapi/app-relations-discovery/blob/master/API.md) for more example and full API reference information.
+See [API documentation](https://github.com/asyncapi/cupid/blob/master/API.md) for more example and full API reference information.
 
 
 ## Usage
@@ -117,7 +117,7 @@ server1 -- flight/queue --> FlightMonitorService
 
 ### Flowchart
 
-<img src="./public/img/mermaid.png" alt="Mermaid Flowchart" width="500"/> </br></br>
+<img src="./assets/img/mermaid.png" alt="Mermaid Flowchart" width="500"/> </br></br>
 
 **[View in online editor](https://mermaid-js.github.io/mermaid-live-editor/edit#eyJjb2RlIjoiZ3JhcGggVERcbiBzZXJ2ZXIxWyhtcXR0Oi8vbG9jYWxob3N0OjE4ODMpXVxuRmxpZ2h0TW9uaXRvclNlcnZpY2VbRmxpZ2h0IE1vbml0b3IgU2VydmljZV1cbkZsaWdodE1vbml0b3JTZXJ2aWNlIC0tIGZsaWdodC91cGRhdGUgLS0-IHNlcnZlcjFcbkZsaWdodE5vdGlmaWVyU2VydmljZVtGbGlnaHQgTm90aWZpZXIgU2VydmljZV1cbnNlcnZlcjEgLS0gZmxpZ2h0L3VwZGF0ZSAtLT4gRmxpZ2h0Tm90aWZpZXJTZXJ2aWNlXG5GbGlnaHRTdWJzY3JpYmVyU2VydmljZVtGbGlnaHQgU3Vic2NyaWJlciBTZXJ2aWNlXVxuRmxpZ2h0U3Vic2NyaWJlclNlcnZpY2UgLS0gZmxpZ2h0L3F1ZXVlIC0tPiBzZXJ2ZXIxXG5zZXJ2ZXIxIC0tIGZsaWdodC9xdWV1ZSAtLT4gRmxpZ2h0TW9uaXRvclNlcnZpY2UiLCJtZXJtYWlkIjoie1xuICBcInRoZW1lXCI6IFwiZGVmYXVsdFwiXG59IiwidXBkYXRlRWRpdG9yIjp0cnVlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6dHJ1ZX0)**
 ## PlantUML classDiagram 
@@ -140,7 +140,7 @@ server1 --|> FlightMonitorService:flight/queue
 ```
 ### ClassDiagram
 
-<img src="./public/img/plantUML.png" alt="PlantUML classDiagram" width="500"/> </br></br>
+<img src="./assets/img/plantUML.png" alt="PlantUML classDiagram" width="500"/> </br></br>
 
 **[View in online editor](https://www.planttext.com/?text=VP3D3e8m3CVlVOgz02742zd1a6YywOKd6AF0aa6Xwxoexou1EM2CjpRz_JzIA88ObjXx42SUrScR432eP9tKsPcMJGzWbpKWtv4pzL2W8dkj-ab4fwadQtn7GNIMvuVvE389MVeGy8ABTsqdLngS49UpZREeakHvt3nrin1f76iZ25lIWgpY6ubh76xgBy7AbB4Abbs5VpEcYF5dnBxV7YzmgET7lG40)**
 ## React Flow  Nodes 
@@ -209,19 +209,19 @@ Based on FlightService example.
 ```
 ### React Flow Nodes
 
-<img src="./public/img/reactFlow.png" alt="reactFlow Nodes" width="500"/> </br></br>
+<img src="./assets/img/reactFlow.png" alt="reactFlow Nodes" width="500"/> </br></br>
 
 ### Steps to visualize relations in React Flow 
 
 1. Setup a react project in which you want to display reactFlow nodes.
-2. Install `@asyncapi/app-relations-discovery` into the project.
+2. Install `@asyncapi/cupid` into the project.
 3. Make a react component for the example.
 
 **Example**
 ```javascript
 import React from 'react';
 import ReactFlow from 'react-flow-renderer';
-import cupid from '@asyncapi/app-relations-discovery';
+import cupid from '@asyncapi/cupid';
 import {getAsyncApiDocuments} from 'utils'; // function for reading AysncAPI files 
 
 const docs = getAsyncApiDocuments();
@@ -236,7 +236,7 @@ export default () => (
 
 ## Develop
 
-1. Clone the project `git clone https://github.com/asyncapi/app-relations-discovery.git`
+1. Clone the project `git clone https://github.com/asyncapi/cupid.git`
 2. Install the dependencies `npm i`
 3. For a quick overview you can run tests by `npm test`. You can also contribute to provide more different syntax outputs to visualize the relations.
 4. Write code and tests.
