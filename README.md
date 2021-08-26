@@ -9,7 +9,7 @@
 </h5>
 
 ![npm](https://img.shields.io/npm/v/@asyncapi/cupid?style=for-the-badge) 
-![npm](https://img.shields.io/npm/dt/@asyncapi/cupid?style=for-the-badge)
+![npm](https://img.shields.io/npm/dt/@asyncapi/cupid)
 [![Coverage Status](https://coveralls.io/repos/github/asyncapi/cupid/badge.svg?branch=master)](https://coveralls.io/github/asyncapi/cupid?branch=master)
 
 
