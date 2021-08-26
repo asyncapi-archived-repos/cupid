@@ -1,5 +1,5 @@
 {
-  "name": "@asyncapi/app-relations-discovery",
+  "name": "@asyncapi/cupid",
   "version": "0.5.0",
   "description": "A library that focuses on finding and analyzing the relationships between AsyncAPI Documents too later output consolidated information about the system architecture. Output format should be customizable and available in different formats like uml, mermaid.js and other.",
   "main": "./lib/index.js",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asyncapi/app-relations-discovery.git"
+    "url": "git+https://github.com/asyncapi/cupid.git"
   },
   "author": "Arjun Garg <arjun.garg.cse01@gmail.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/asyncapi/app-relations-discovery/issues"
+    "url": "https://github.com/asyncapi/cupid/issues"
   },
-  "homepage": "https://github.com/asyncapi/app-relations-discovery#readme",
+  "homepage": "https://github.com/asyncapi/cupid#readme",
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/github": "^7.2.3",
