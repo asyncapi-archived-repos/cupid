@@ -13,7 +13,7 @@
 <dt><a href="#getReactFlowData">getReactFlowData(metrics)</a> ⇒ <code>Array</code></dt>
 <dd><p>Generates reactFlow nodes data from default output syntax</p>
 </dd>
-<dt><a href="#validate">validate(asyncApiDocs)</a> ⇒ <code>Array</code></dt>
+<dt><a href="#validate">validate(asyncApiDocs)</a> ⇒ <code>Promise.&lt;Array&gt;</code></dt>
 <dd><p>Validate and parse given array of AsyncAPI documents.</p>
 </dd>
 </dl>
@@ -70,11 +70,11 @@ Generates reactFlow nodes data from default output syntax
 
 <a name="validate"></a>
 
-## validate(asyncApiDocs) ⇒ <code>Array</code>
+## validate(asyncApiDocs) ⇒ <code>Promise.&lt;Array&gt;</code>
 Validate and parse given array of AsyncAPI documents.
 
 **Kind**: global function  
-**Returns**: <code>Array</code> - parsed AsyncAPI documents  
+**Returns**: <code>Promise.&lt;Array&gt;</code> - parsed AsyncAPI documents  
 
 | Param | Type | Description |
 | --- | --- | --- |
