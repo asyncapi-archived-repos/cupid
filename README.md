@@ -76,7 +76,7 @@ const fs = require('fs');
 async function getAsyncApiExamples() {
   const docs = [];
   const files = [
-    ..
+    ...
   ]
   for (const file of files) {
     const asyncApiDoc = fs.readFileSync(file, 'utf8');
@@ -236,7 +236,7 @@ Based on FlightService example.
 import React from 'react';
 import ReactFlow from 'react-flow-renderer';
 import cupid from '@asyncapi/cupid';
-import {getAsyncApiExamples} from 'utils'; // function for reading AsyncAPI files 
+import {getAsyncApiExamples} from './utils'; // function for reading AsyncAPI files
 
 const docs = getAsyncApiExamples();
 const elements = cupid.getRelations(docs,{syntax:'reactFlow'});
