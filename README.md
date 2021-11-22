@@ -22,18 +22,18 @@
 - [Technical Details](#technical-details)
 - [API Documentation](#api-documentation)
 - [Usage](#usage)
-  * [Node.js](#nodejs)
-  * [Default Output Syntax](#default-output-syntax)
+  - [Node.js](#nodejs)
+  - [Default Output Syntax](#default-output-syntax)
 - [Mermaid Flowchart](#mermaid-flowchart)
-  * [Syntax](#syntax)
-  * [Flowchart](#flowchart)
+  - [Syntax](#syntax)
+  - [Flowchart](#flowchart)
 - [PlantUML classDiagram](#plantuml-classdiagram)
-  * [Syntax](#syntax-1)
-  * [ClassDiagram](#classdiagram)
-- [React Flow Nodes](#react-flow--nodes)
-  * [Syntax](#syntax-2)
-  * [React Flow Nodes](#react-flow-nodes)
-  * [Steps to visualize relations in React Flow](#steps-to-visualize-relations-in-react-flow)
+  - [Syntax](#syntax-1)
+  - [ClassDiagram](#classdiagram)
+- [React Flow  Nodes](#react-flow--nodes)
+  - [Syntax](#syntax-2)
+  - [React Flow Nodes](#react-flow-nodes)
+  - [Steps to visualize relations in React Flow](#steps-to-visualize-relations-in-react-flow)
 - [Develop](#develop)
 - [Contributing](#contributing)
 
@@ -63,18 +63,23 @@ const cupid = require('@asyncapi/cupid');
 const path = require('path');
 const fs = require('fs');
 
-const examplesPath = './test/examples/flightService';
-
-function getAsyncApiExamples() {
+async function getAsyncApiExamples() {
   const docs = [];
-  const files = fs.readdirSync(examplesPath);
+  const files = [
+    ..
+  ]
   for (const file of files) {
-    const document_path = path.join('./examples/flightService', file);
-    const asyncApiDoc = fs.readFileSync(path.resolve(__dirname, document_path),'utf8');
+    const asyncApiDoc = fs.readFileSync(file, 'utf8');
     docs.push(asyncApiDoc);
   }
-  return docs;
+  try {
+    const mermaidFlowchart = await cupid.getRelations(docs,{syntax:'mermaid'});
+    console.log(mermaidFlowchart);
+  } catch (error) {
+    console.error(error);
+  }
 }
+getAsyncApiExamples();
 
 // For default output syntax
 const defaultOutput = cupid.getRelations(docs);
@@ -221,9 +226,9 @@ Based on FlightService example.
 import React from 'react';
 import ReactFlow from 'react-flow-renderer';
 import cupid from '@asyncapi/cupid';
-import {getAsyncApiDocuments} from 'utils'; // function for reading AysncAPI files 
+import {getAsyncApiExamples} from 'utils'; // function for reading AsyncAPI files 
 
-const docs = getAsyncApiDocuments();
+const docs = getAsyncApiExamples();
 const elements = cupid.getRelations(docs,{syntax:'reactFlow'});
 
 export default () => (
