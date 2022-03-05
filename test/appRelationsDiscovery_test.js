@@ -5,7 +5,7 @@ const expect = chai.expect;
 chai.use(chaiAsPromised);
 
 const {getRelations} = require('../lib/appRelationsDiscovery');
-const {getAsyncApiExamples} = require('./testsUtil'); 
+const {getAsyncApiExamples,parseAsyncApiExamples} = require('./testsUtil'); 
 
 const outputMermaid = 'graph TD\n server1[(mqtt://localhost:1883)]\nFlightMonitorService[Flight Monitor Service]\nFlightMonitorService -- flight/update --> server1\nFlightNotifierService[Flight Notifier Service]\nserver1 -- flight/update --> FlightNotifierService\nFlightSubscriberService[Flight Subscriber Service]\nFlightSubscriberService -- flight/queue --> server1\nserver1 -- flight/queue --> FlightMonitorService';
 const outputPlantUML = '@startuml\ntitle Classes - Class Diagram\n\nclass server1 { \n url: mqtt://localhost:1883 \n protocol: mqtt\n}\nFlightMonitorService --|> server1:flight/update\nserver1 --|> FlightNotifierService:flight/update\nFlightSubscriberService --|> server1:flight/queue\nserver1 --|> FlightMonitorService:flight/queue\n@enduml';
@@ -19,62 +19,84 @@ describe('appRelationDiscovery', function() {
   let flightServiceDocs;
   let correctSlug;
   let slugOutput;
+  let parsedSlugOutput;
   let output;
   let correctChannelUpdate;
   let correctChannelQueue;
+  let parsedDocs;
+  let parsedOutput;
 
   before(async function() {
     flightServiceDocs = getAsyncApiExamples();
+    parsedDocs = await parseAsyncApiExamples(flightServiceDocs);
     output = await getRelations(flightServiceDocs);
+    parsedOutput = await getRelations(parsedDocs);
     correctSlug = 'mqtt://localhost:1883,mqtt';
     slugOutput = output.get(correctSlug);
+    parsedSlugOutput = parsedOutput.get(correctSlug);
     correctChannelUpdate = 'flight/update';
     correctChannelQueue = 'flight/queue';
   });
   it('should return correct slug', function() {
     expect(output).to.have.key(correctSlug);
+    expect(parsedOutput).to.have.key(correctSlug);
   });
 
   it('should return correct channels', function() {
     expect(slugOutput).to.have.all.keys(correctChannelUpdate, correctChannelQueue);
+    expect(parsedSlugOutput).to.have.all.keys(correctChannelUpdate, correctChannelQueue);
   });
 
   it('should return correct subscriber data for flight/update channel', async function() {
     const updateChannelOutput = slugOutput.get(correctChannelUpdate);
+    const updateChannelParsedOutput = parsedSlugOutput.get(correctChannelUpdate);
     const correctSubOperation = 'Flight Monitor Service';
     expect(updateChannelOutput.sub.get(correctSubOperation)).to.deep.equal(flightUpdateSubData.get(correctSubOperation));
+    expect(updateChannelParsedOutput.sub.get(correctSubOperation)).to.deep.equal(flightUpdateSubData.get(correctSubOperation));
   });
 
   it('should return correct publisher data for flight/update channel', async function() {
     const updateChannelOutput = slugOutput.get(correctChannelUpdate);
+    const updateChannelParsedOutput = parsedSlugOutput.get(correctChannelUpdate);
     const correctPubOperation = 'Flight Notifier Service';
     expect(updateChannelOutput.pub.get(correctPubOperation)).to.deep.equal(flightUpdatePubData.get(correctPubOperation));
+    expect(updateChannelParsedOutput.pub.get(correctPubOperation)).to.deep.equal(flightUpdatePubData.get(correctPubOperation));
   });
 
   it('should return correct subscriber data for flight/queue channel', async function() {
     const queueChannelOutput = slugOutput.get(correctChannelQueue);
+    const queueChannelParsedOutput = parsedSlugOutput.get(correctChannelQueue);
     const correctSubOperation = 'Flight Subscriber Service';
     expect(queueChannelOutput.sub.get(correctSubOperation)).to.deep.equal(flightQueueSubData.get(correctSubOperation));
+    expect(queueChannelParsedOutput.sub.get(correctSubOperation)).to.deep.equal(flightQueueSubData.get(correctSubOperation));
   });
 
   it('should return correct publisher data for flight/queue channel', async function() {
     const queueChannelOutput = slugOutput.get(correctChannelQueue);
+    const queueChannelParsedOutput = parsedSlugOutput.get(correctChannelQueue);
     const correctPubOperation = 'Flight Monitor Service';
     expect(queueChannelOutput.pub.get(correctPubOperation)).to.deep.equal(flightQueuePubData.get(correctPubOperation));
+    expect(queueChannelParsedOutput.pub.get(correctPubOperation)).to.deep.equal(flightQueuePubData.get(correctPubOperation));
   });
 
   it('should return the correct mermaid syntax', async function() {
     const output = await getRelations(flightServiceDocs,{syntax: 'mermaid'});
+    const parsedOutput = await getRelations(parsedDocs,{syntax: 'mermaid'});
     expect(output).to.be.equal(outputMermaid);
+    expect(parsedOutput).to.be.equal(outputMermaid);
   });
 
   it('should return the correct plantUML syntax', async function() {
     const output = await getRelations(flightServiceDocs,{syntax: 'plantUML'});
+    const parsedOutput = await getRelations(parsedDocs,{syntax: 'plantUML'});
     expect(output).to.be.equal(outputPlantUML);
+    expect(parsedOutput).to.be.equal(outputPlantUML);
   });
 
   it('should return the correct reactFlow elements array', async function() {
     const output = await getRelations(flightServiceDocs,{syntax: 'reactFlow'});
+    const parsedOutput = await getRelations(parsedDocs,{syntax: 'reactFlow'});
     expect(output).to.be.deep.equal(outputReactFlow);
+    expect(parsedOutput).to.be.deep.equal(outputReactFlow);
   });
 });
