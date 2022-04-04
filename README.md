@@ -1,27 +1,9 @@
-<h5 align="center">
-  <br>
-  <a href="https://www.asyncapi.org"><img src="https://github.com/asyncapi/parser-nodejs/raw/master/assets/logo.png" alt="AsyncAPI logo" width="200"></a>
-  <br>
-  <b>Cupid</b>
-  <br>
-  <img src="./assets/img/cupid.jpeg" alt="Cupid Image" width="200"></a>
-  <br>
-  <p align="center">
-  <em>Visualize your defined event-driven architecture in seconds</em>
-</p>
-</h5>
-<p align="center">
-<a href="https://github.com/asyncapi/cupid/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/asyncapi/cupid"></a>
-<a href="https://github.com/asyncapi/cupid/actions/workflows/if-nodejs-pr-testing.yml">
-<img src="https://github.com/asyncapi/cupid/actions/workflows/if-nodejs-pr-testing.yml/badge.svg" alt="PR testing - if Node project"  />
-</a>
-<a href="https://www.npmjs.com/package/@asyncapi/cupid">
-<img alt="npm" src="https://img.shields.io/npm/dw/@asyncapi/cupid">
-</a>
-<a href="https://coveralls.io/repos/github/asyncapi/cupid/badge.svg?branch=master">
-<img src="https://coveralls.io/repos/github/asyncapi/cupid/badge.svg?branch=master" alt="Coverage Status"  />
-</a>
-</p>
+[![AsyncAPI Cupid](./assets/img/readme-banner.png)](https://www.asyncapi.com)
+
+[![Github license](https://img.shields.io/github/license/asyncapi/cupid)](https://github.com/asyncapi/cupid/blob/master/LICENSE)
+[![PR testing - if Node project](https://github.com/asyncapi/cupid/actions/workflows/if-nodejs-pr-testing.yml/badge.svg)](https://github.com/asyncapi/cupid/actions/workflows/if-nodejs-pr-testing.yml)
+[![npm](https://img.shields.io/npm/dw/@asyncapi/cupid)](https://www.npmjs.com/package/@asyncapi/cupid)
+[![Coverage Status](https://coveralls.io/repos/github/asyncapi/cupid/badge.svg?branch=master)](https://coveralls.io/repos/github/asyncapi/cupid/badge.svg?branch=master)
 
 <!-- toc is generated with GitHub Actions do not remove toc markers -->
 
