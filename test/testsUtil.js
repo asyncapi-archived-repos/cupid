@@ -10,7 +10,6 @@ async function parseAsyncApiExamples(asyncApiDocs) {
     const parsedDoc = await parser.parse(doc);
     docs.push(parsedDoc);
   }
-  console.log(docs);
   return docs;
 }
 
