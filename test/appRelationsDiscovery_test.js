@@ -80,23 +80,23 @@ describe('appRelationDiscovery', function() {
   });
 
   it('should return the correct mermaid syntax', async function() {
-    const output = await getRelations(flightServiceDocs,{syntax: 'mermaid'});
-    const parsedOutput = await getRelations(parsedDocs,{syntax: 'mermaid'});
-    expect(output).to.be.equal(outputMermaid);
-    expect(parsedOutput).to.be.equal(outputMermaid);
+    const testOutput = await getRelations(flightServiceDocs,{syntax: 'mermaid'});
+    const testParsedOutput = await getRelations(parsedDocs,{syntax: 'mermaid'});
+    expect(testOutput).to.be.equal(outputMermaid);
+    expect(testParsedOutput).to.be.equal(outputMermaid);
   });
 
   it('should return the correct plantUML syntax', async function() {
-    const output = await getRelations(flightServiceDocs,{syntax: 'plantUML'});
+    const testOutput = await getRelations(flightServiceDocs,{syntax: 'plantUML'});
     const parsedOutput = await getRelations(parsedDocs,{syntax: 'plantUML'});
-    expect(output).to.be.equal(outputPlantUML);
+    expect(testOutput).to.be.equal(outputPlantUML);
     expect(parsedOutput).to.be.equal(outputPlantUML);
   });
 
   it('should return the correct reactFlow elements array', async function() {
-    const output = await getRelations(flightServiceDocs,{syntax: 'reactFlow'});
-    const parsedOutput = await getRelations(parsedDocs,{syntax: 'reactFlow'});
-    expect(output).to.be.deep.equal(outputReactFlow);
-    expect(parsedOutput).to.be.deep.equal(outputReactFlow);
+    const testOutput = await getRelations(flightServiceDocs,{syntax: 'reactFlow'});
+    const testParsedOutput = await getRelations(parsedDocs,{syntax: 'reactFlow'});
+    expect(testOutput).to.be.deep.equal(outputReactFlow);
+    expect(testParsedOutput).to.be.deep.equal(outputReactFlow);
   });
 });
