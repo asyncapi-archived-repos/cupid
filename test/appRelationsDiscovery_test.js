@@ -88,9 +88,9 @@ describe('appRelationDiscovery', function() {
 
   it('should return the correct plantUML syntax', async function() {
     const testOutput = await getRelations(flightServiceDocs,{syntax: 'plantUML'});
-    const parsedOutput = await getRelations(parsedDocs,{syntax: 'plantUML'});
+    const testParsedOutput = await getRelations(parsedDocs,{syntax: 'plantUML'});
     expect(testOutput).to.be.equal(outputPlantUML);
-    expect(parsedOutput).to.be.equal(outputPlantUML);
+    expect(testParsedOutput).to.be.equal(outputPlantUML);
   });
 
   it('should return the correct reactFlow elements array', async function() {
