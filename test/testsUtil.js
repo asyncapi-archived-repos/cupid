@@ -1,7 +1,17 @@
 const path = require('path');
 const fs = require('fs');
+const parser = require('@asyncapi/parser');
 
 const examplesPath = './test/examples/flightService';
+
+async function parseAsyncApiExamples(asyncApiDocs) {
+  const docs = [];
+  for (const doc of asyncApiDocs) {
+    const parsedDoc = await parser.parse(doc);
+    docs.push(parsedDoc);
+  }
+  return docs;
+}
 
 function getAsyncApiExamples() {
   const docs = [];
@@ -14,4 +24,4 @@ function getAsyncApiExamples() {
   return docs;
 }
 
-module.exports = {getAsyncApiExamples};
+module.exports = {getAsyncApiExamples,parseAsyncApiExamples};
