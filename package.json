@@ -1,6 +1,6 @@
 {
   "name": "@asyncapi/cupid",
-  "version": "0.6.14",
+  "version": "0.6.16",
   "description": "A library that focuses on finding and analyzing the relationships between AsyncAPI Documents too later output consolidated information about the system architecture. Output format should be customizable and available in different formats like uml, mermaid.js and other.",
   "main": "./lib/index.js",
   "scripts": {
