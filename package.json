@@ -44,7 +44,7 @@
     "semantic-release": "^17.4.3"
   },
   "dependencies": {
-    "@asyncapi/parser": "^1.15.0"
+    "@asyncapi/parser": "^1.15.1"
   },
   "publishConfig": {
     "access": "public"
