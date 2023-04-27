@@ -1,4 +1,4 @@
-summary: Requets to queue a flight to be monitored
+summary: Request to queue a flight to be monitored
 payload:
   type: object
   properties:
