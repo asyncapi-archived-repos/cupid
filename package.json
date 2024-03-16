@@ -12,7 +12,7 @@
     "generate:readme:toc": "markdown-toc -i README.md",
     "generate:assets": "npm run docs && npm run generate:readme:toc",
     "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION",
-    "test:lib": "nyc --reporter=lcov --reporter=html --reporter=text --no-clean mocha --recursive",
+    "test:lib": "nyc --reporter=lcov --reporter=html --reporter=text --no-clean mocha --recursive --timeout 5000",
     "release": "semantic-release"
   },
   "repository": {
@@ -44,7 +44,7 @@
     "semantic-release": "^17.4.3"
   },
   "dependencies": {
-    "@asyncapi/parser": "^1.18.0"
+    "@asyncapi/parser": "^3.0.7"
   },
   "publishConfig": {
     "access": "public"
