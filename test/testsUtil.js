@@ -1,11 +1,12 @@
 const path = require('path');
 const fs = require('fs');
-const parser = require('@asyncapi/parser');
+const { Parser } = require('@asyncapi/parser');
 
 const examplesPath = './test/examples/flightService';
 
 async function parseAsyncApiExamples(asyncApiDocs) {
   const docs = [];
+  const parser = new Parser();
   for (const doc of asyncApiDocs) {
     const parsedDoc = await parser.parse(doc);
     docs.push(parsedDoc);
