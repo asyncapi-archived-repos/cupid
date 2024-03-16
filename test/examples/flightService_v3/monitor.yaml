@@ -1,0 +1,53 @@
+# Contributed by: Alvaro Navarro Link: https://github.com/amadeus4dev/amadeus-async-flight-status/
+asyncapi: 3.0.0
+info:
+  title: Flight Monitor Service
+  version: 1.0.0
+  description: >
+    provides real-time flight schedule data including up-to-date departure and
+    arrival times, 
+
+    terminal and gate information, flight duration and real-time delay status.
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+servers:
+  development:
+    host: 'localhost:1883'
+    protocol: mqtt
+channels:
+  flight/update:
+    address: flight/update
+    messages:
+      subscribe.message:
+        $ref: '#/components/messages/flightStatus'
+    description: |
+      Provides updates from a subscribed flight
+  flight/queue:
+    address: flight/queue
+    messages:
+      publish.message:
+        $ref: '#/components/messages/flightQueue'
+    description: |
+      Queues a flight in order to retrieve status
+operations:
+  flight/update.subscribe:
+    action: send
+    channel:
+      $ref: '#/channels/flight~1update'
+    summary: Inform about the status of a subscribed flight
+    messages:
+      - $ref: '#/channels/flight~1update/messages/subscribe.message'
+  flight/queue.publish:
+    action: receive
+    channel:
+      $ref: '#/channels/flight~1queue'
+    summary: Subscribe about the status of a given flight
+    messages:
+      - $ref: '#/channels/flight~1queue/messages/publish.message'
+components:
+  messages:
+    flightStatus:
+      $ref: ./test/examples/common/messages/flight_status.yaml
+    flightQueue:
+      $ref: ./test/examples/common/messages/flight_queue.yaml
