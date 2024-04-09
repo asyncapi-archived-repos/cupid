@@ -1,0 +1,34 @@
+# Contributed by: Alvaro Navarro Link: https://github.com/amadeus4dev/amadeus-async-flight-status/
+asyncapi: 3.0.0
+info:
+  title: Flight Notifier Service
+  version: 1.0.0
+  description: |
+    Recevies updates from a subscribed flight and notifies via Twilio API.
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+servers:
+  development:
+    host: 'localhost:1883'
+    protocol: mqtt
+channels:
+  flight/update:
+    address: flight/update
+    messages:
+      publish.message:
+        $ref: '#/components/messages/flightStatus'
+    description: |
+      Receives updates from a subscribed flight
+operations:
+  flight/update.publish:
+    action: receive
+    channel:
+      $ref: '#/channels/flight~1update'
+    summary: Inform about the status of a subscribed flight
+    messages:
+      - $ref: '#/channels/flight~1update/messages/publish.message'
+components:
+  messages:
+    flightStatus:
+      $ref: ./test/examples/common/messages/flight_status.yaml

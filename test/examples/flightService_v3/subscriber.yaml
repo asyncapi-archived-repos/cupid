@@ -1,0 +1,34 @@
+# Contributed by: Alvaro Navarro Link: https://github.com/amadeus4dev/amadeus-async-flight-status/
+asyncapi: 3.0.0
+info:
+  title: Flight Subscriber Service
+  version: 1.0.0
+  description: |
+    Allows users to subscribe events from a given flight
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+servers:
+  development:
+    host: 'localhost:1883'
+    protocol: mqtt
+channels:
+  flight/queue:
+    address: flight/queue
+    messages:
+      subscribe.message:
+        $ref: '#/components/messages/flightQueue'
+    description: |
+      queue flight in order to retrieve status
+operations:
+  flight/queue.subscribe:
+    action: send
+    channel:
+      $ref: '#/channels/flight~1queue'
+    summary: Receive information about the flight that should be monitored for changes
+    messages:
+      - $ref: '#/channels/flight~1queue/messages/subscribe.message'
+components:
+  messages:
+    flightQueue:
+      $ref: ./test/examples/common/messages/flight_queue.yaml
